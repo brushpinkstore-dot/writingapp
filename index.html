@@ -1,1 +1,214 @@
+<div class="app">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <div class="logo-badge">AC</div>
+      <!-- Bottone collapse accanto al logo -->
+      <button id="collapseToggle" class="icon-btn" title="Collassa barra laterale" aria-label="Collassa barra laterale" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="4" width="18" height="16" rx="2"/>
+          <path d="M9 4v16"/>
+          <path d="M13 9h5"/>
+          <path d="M13 15h5"/>
+        </svg>
+      </button>
+    </div>
 
+    <!-- Rail (quando collassata) -->
+    <div class="rail" aria-label="Barra compatta">
+      <!-- 1) Logo app -->
+      <div class="logo-badge" title="Logo">AC</div>
+
+      <!-- 2) Riapri sidebar -->
+      <button id="railToggle" class="rail-btn" title="Espandi barra" aria-label="Espandi barra" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="4" width="18" height="16" rx="2"/>
+          <path d="M9 4v16"/>
+          <path d="M13 9h5"/>
+          <path d="M13 15h5"/>
+        </svg>
+      </button>
+
+      <!-- 3) Search -->
+      <button id="railSearch" class="rail-btn" title="Cerca" aria-label="Cerca" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="7"></circle>
+          <path d="m21 21-4.3-4.3"></path>
+        </svg>
+      </button>
+
+      <!-- 4) New document -->
+      <button id="railAdd" class="rail-btn" title="Nuovo documento" aria-label="Nuovo documento" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 5v14"></path>
+          <path d="M5 12h14"></path>
+        </svg>
+      </button>
+
+      <!-- 5) Documents -->
+      <button id="railDocs" class="rail-btn" title="Documenti" aria-label="Documenti" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <path d="M14 2v6h6"></path>
+          <path d="M16 13H8"></path>
+          <path d="M16 17H8"></path>
+        </svg>
+      </button>
+
+      <!-- 6) Trash (nuovo) -->
+      <button id="railTrash" class="rail-btn" title="Trash" aria-label="Trash" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="3 6 5 6 21 6"/>
+          <path d="M19 6l-1 14a2 2 0 0 1 -2 2H8a2 2 0 0 1 -2 -2L5 6"/>
+          <path d="M10 11v6"/><path d="M14 11v6"/>
+          <path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/>
+        </svg>
+      </button>
+
+      <div class="rail-spacer"></div>
+
+      <!-- In fondo: tema + impostazioni -->
+      <button id="railTheme" class="rail-btn" title="Tema" aria-label="Tema" type="button"></button>
+      <button id="railSettings" class="rail-btn" title="Impostazioni" aria-label="Impostazioni" type="button">
+        <!-- ICONA INGRANAGGIO (lasciata identica) -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"></path>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06A1.65 1.65 0 0 0 15 19.4a1.65 1.65 0 0 0-1 .6 1.65 1.65 0 0 0-.33 1.82l.02.07a2 2 0 1 1 3.38 0l.02.07c-.08.4.3.74.6 1 .3.26.68.4 1.07.4.62 0 1.21-.25 1.64-.7l.06-.06a2 2 0 1 1 2.83 2.83l-.06-.06c-.46.43-.7 1.02-.7 1.64 0 .39.14.77.4 1.07.26.3.6.52 1 .6l.07.02a2 2 0 1 1 0 3.38l-.07.02c-.4.08-.74.3-1 .6-.26.3-.4.68-.4 1.07Z"></path>
+        </svg>
+      </button>
+    </div>
+
+    <div class="sidebar-body">
+      <div id="searchWrap">
+        <button id="searchBtn" class="primary-btn" title="Search documents" type="button">
+          <span class="primary-btn-content">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="7"/>
+              <path d="m21 21-4.3-4.3"/>
+            </svg>
+            <span>Search</span>
+          </span>
+        </button>
+        <input id="search" class="search-min" type="search" placeholder="Type to search…" style="display:none;margin-top:8px;width:100%" />
+      </div>
+
+      <div class="section-label">
+        <span>Documents</span>
+        <button id="docsAdd" class="icon-btn" title="New document" aria-label="New document" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 5v14"></path>
+            <path d="M5 12h14"></path>
+          </svg>
+        </button>
+      </div>
+      <div id="docList" class="doc-list" role="tree" aria-label="Elenco documenti"></div>
+
+      <!-- RIGA TRASH (nuova) -->
+      <div id="trashRow" class="trash-row" role="button" tabindex="0" aria-expanded="false" title="Trash">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px;">
+          <polyline points="3 6 5 6 21 6"/>
+          <path d="M19 6l-1 14a2 2 0 0 1 -2 2H8a2 2 0 0 1 -2 -2L5 6"/>
+          <path d="M10 11v6"/><path d="M14 11v6"/>
+          <path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/>
+        </svg>
+        <span>Trash</span>
+      </div>
+    </div>
+
+    <div class="sidebar-footer">
+      <button id="themeToggle" class="toggle" aria-pressed="false" title="Cambia tema" type="button">
+        <div id="themeKnob" class="knob"></div>
+      </button>
+      <!-- Ingranaggio identico -->
+      <button id="settingsBtn" class="icon-btn" title="Impostazioni" aria-label="Impostazioni" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"></path>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06A1.65 1.65 0 0 0 15 19.4a1.65 1.65 0 0 0-1 .6 1.65 1.65 0 0 0-.33 1.82l.02.07a2 2 0 1 1 3.38 0l.02.07c-.08.4.3.74.6 1 .3.26.68.4 1.07.4.62 0 1.21-.25 1.64-.7l.06-.06a2 2 0 1 1 2.83 2.83l-.06-.06c-.46.43-.7 1.02-.7 1.64 0 .39.14.77.4 1.07.26.3.6.52 1 .6l.07.02a2 2 0 1 1 0 3.38l-.07.02c-.4.08-.74.3-1 .6-.26.3-.4.68-.4 1.07Z"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Handle per resize sidebar -->
+    <div id="sidebarResizer" class="sidebar-resizer" aria-hidden="true" role="separator" aria-orientation="vertical"></div>
+  </aside>
+
+  <!-- MAIN -->
+  <section class="main">
+    <div class="canvas">
+      <!-- Breadcrumbs (fuori dal foglio) -->
+      <nav id="breadcrumbs" class="breadcrumbs" aria-label="Breadcrumb"></nav>
+
+      <!-- Stats Dock (sempre visibile) -->
+      <div id="statsDock" class="stats-dock" role="status" aria-live="polite">0 words • 0 chars • 0 min</div>
+
+      <div id="workspace" class="workspace">
+        <!-- Pane A -->
+        <div class="page" id="paneA">
+          <div class="sheet">
+            <div class="pane-head">
+              <!-- [MOD] input -> div contenteditable per titolo multilinea -->
+              <div id="docTitleA" class="title-input" contenteditable="true" data-placeholder="Titolo senza nome"></div>
+              <div class="pane-actions"></div>
+            </div>
+
+            <!-- Divider toggle + children -->
+            <div class="divider-ctrl">
+              <button id="dividerToggleA" class="divider-btn hidden" aria-expanded="false" title="Mostra contenuti" type="button">
+                <span class="chev">▾</span>
+              </button>
+            </div>
+            <div id="childrenPanelA" class="children-panel">
+              <div class="children-head"><div id="childrenLabelA">Content (0)</div></div>
+              <div id="childrenListA" class="children-list"></div>
+            </div>
+
+            <div class="editor">
+              <!-- *** QUI MONTERAI LA LIBRERIA (Quill/TipTap/Editor.js) *** -->
+              <div id="editorA" class="editable"></div>
+              <div id="editableA" style="display:none"></div>
+              <div class="stats">
+                <div class="stats-divider"></div>
+                <div id="statsA">0 words • 0 chars • 0 min</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="resizer" class="resizer" style="display:none;"></div>
+
+        <!-- Pane B -->
+        <div class="page" id="paneB" style="display:none;">
+          <div class="sheet">
+            <div class="pane-head">
+              <!-- [MOD] input -> div contenteditable per titolo multilinea -->
+              <div id="docTitleB" class="title-input" contenteditable="true" data-placeholder="Titolo senza nome"></div>
+              <div class="pane-actions">
+                <button id="closeB" class="icon-btn" title="Chiudi pannello" aria-label="Chiudi pannello" type="button">×</button>
+              </div>
+            </div>
+
+            <div class="divider-ctrl">
+              <button id="dividerToggleB" class="divider-btn hidden" aria-expanded="false" title="Mostra contenuti" type="button">
+                <span class="chev">▾</span>
+              </button>
+            </div>
+            <div id="childrenPanelB" class="children-panel">
+              <div class="children-head"><div id="childrenLabelB">Content (0)</div></div>
+              <div id="childrenListB" class="children-list"></div>
+            </div>
+
+            <div class="editor">
+              <!-- *** SE USI IL PANNELLO B, MONTA QUI UN SECONDO EDITOR *** -->
+              <div id="editorB" class="editable"></div>
+              <div id="editableB" style="display:none"></div>
+              <div class="stats">
+                <div class="stats-divider"></div>
+                <div id="statsB">0 words • 0 chars • 0 min</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> <!-- /workspace -->
+    </div>
+  </section>
+</div>
